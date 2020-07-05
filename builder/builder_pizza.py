@@ -22,10 +22,11 @@ class Pizza:
 
     def __str__(self):
         return self.name
-    
+
     def prepare_dough(self, dough):
         self.dough = dough
-        print('preparing the {} dough of your {}...'.format(self.dough.name, self))
+        print('preparing the {} dough of your {}...'.format(
+            self.dough.name, self))
         time.sleep(STEP_DELAY)
         print('done with the {} dough'.format(self.dough.name))
 
@@ -35,14 +36,13 @@ class MargaritaBuilder:
         self.pizza = Pizza('margarita')
         self.progress = PizzaProgress.queued
         self.baking_time = 5
-    
+
     def prepare_dough(self):
         self.progress = PizzaProgress.preparation
         self.pizza.prepare_dough(PizzaDough.thin)
-    
+
     def add_sauce(self):
         print('adding the tomato sauce to your margarita...')
         self.pizza.sauce = PizzaSauce.tomato
         time.sleep(STEP_DELAY)
         print('done with the tomato sauce')
-    
